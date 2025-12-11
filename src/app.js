@@ -151,10 +151,12 @@ function renderPeople() {
     <div class="container">
       <h2>People</h2>
       <p class="sub">Meet the team.</p>
+
+      <h3>Principal Investigator</h3>
       <div class="grid">
-        ${people().map(p => `
+        ${people().pi.map(p => `
           <div class="card people-card">
-            <img src="${p.photo}" alt="${p.name}" />
+            <div class="avatar">${p.photo ? `<img src="${p.photo}" alt="${p.name}" />` : ''}</div>
             <div>
               <h3>${p.name}</h3>
               <p class="role">${p.role}</p>
@@ -162,6 +164,72 @@ function renderPeople() {
           </div>
         `).join('')}
       </div>
+
+      <h3 style="margin-top:24px">Post-Doctoral Researchers</h3>
+      <div class="grid">
+        ${people().postdocs.map(p => `
+          <div class="card people-card">
+            <div class="avatar">${p.photo ? `<img src="${p.photo}" alt="${p.name}" />` : ''}</div>
+            <div>
+              <h3>${p.name}</h3>
+              <p class="role">${p.role}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <h3 style="margin-top:24px">Current Graduate Students</h3>
+      <div class="grid">
+        ${people().grads.map(p => `
+          <div class="card people-card">
+            <div class="avatar">${p.photo ? `<img src="${p.photo}" alt="${p.name}" />` : ''}</div>
+            <div>
+              <h3>${p.name}</h3>
+              <p class="role">${p.role}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <h3 style="margin-top:24px">Current Undergraduate Students</h3>
+      <div class="grid">
+        ${people().undergrads.map(p => `
+          <div class="card people-card">
+            <div class="avatar">${p.photo ? `<img src="${p.photo}" alt="${p.name}" />` : ''}</div>
+            <div>
+              <h3>${p.name}</h3>
+              <p class="role">${p.role}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <h3 style="margin-top:24px">Alumni</h3>
+      <div class="grid">
+        ${people().alumni.map(p => `
+          <div class="card people-card">
+            <div class="avatar">${p.photo ? `<img src="${p.photo}" alt="${p.name}" />` : ''}</div>
+            <div>
+              <h3>${p.name}</h3>
+              <p class="role">${p.role}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <h3 style="margin-top:24px">Collaborators</h3>
+      <div class="grid">
+        ${people().collaborators.map(p => `
+          <div class="card people-card">
+            <div class="avatar">${p.photo ? `<img src="${p.photo}" alt="${p.name}" />` : ''}</div>
+            <div>
+              <h3>${p.name}</h3>
+              <p class="role">${p.role}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
     </div>
   </section>
   `);
@@ -254,7 +322,7 @@ function renderImpact() {
   mount(`
   <section class="section impact-page">
     <div class="container">
-      <h2>Our Impact</h2>
+      <h2>Our Mission Statement</h2>
       <div class="grid impact-grid">
         <div>
           <div class="card impact-copy">
@@ -283,11 +351,27 @@ function researchItems() {
 }
 
 function people() {
-  return [
-    { name: 'Dr. A. Roy', role: 'Principal Investigator', photo: '/assets/images/person1.jpg' },
-    { name: 'Researcher 1', role: 'PhD Student', photo: '/assets/images/person2.jpg' },
-    { name: 'Researcher 2', role: 'Postdoctoral Fellow', photo: '/assets/images/person3.jpg' },
-  ];
+  return {
+    pi: [
+      { name: 'Dr. A. Roy', role: 'Principal Investigator', photo: '/assets/images/person1.jpg' },
+    ],
+    postdocs: [
+      { name: 'Postdoc 1', role: 'Post-Doctoral Researcher', photo: '/assets/images/person2.jpg' },
+    ],
+    grads: [
+      { name: 'Graduate Student 1', role: 'PhD Student', photo: '/assets/images/person3.jpg' },
+      { name: 'Graduate Student 2', role: 'PhD Student', photo: '/assets/images/person4.jpg' },
+    ],
+    undergrads: [
+      { name: 'Undergraduate 1', role: 'Undergraduate Researcher', photo: '/assets/images/person5.jpg' },
+    ],
+    alumni: [
+      { name: 'Alumnus 1', role: 'Former Graduate Student', photo: '/assets/images/person6.jpg' },
+    ],
+    collaborators: [
+      { name: 'Collaborator 1', role: 'External Collaborator', photo: '/assets/images/person7.jpg' },
+    ],
+  };
 }
 
 function publications() {

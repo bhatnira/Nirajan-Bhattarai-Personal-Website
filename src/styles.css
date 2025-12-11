@@ -184,6 +184,11 @@ input:focus, textarea:focus, select:focus { border-color: var(--primary); box-sh
 
 /* People */
 .people-card { display: grid; grid-template-columns: 88px 1fr; gap: 16px; align-items: center }
+.people-card .avatar { 
+  width: 88px; height: 88px; border-radius: 50%; 
+  background: rgba(2,6,23,0.06); border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
 .people-card img { width: 88px; height: 88px; object-fit: cover; border-radius: 50%; box-shadow: var(--shadow) }
 .people-card h3 { margin: 0 }
 .people-card .role { color: var(--muted); font-size: 14px }
@@ -260,6 +265,35 @@ input:focus, textarea:focus, select:focus { border-color: var(--primary); box-sh
 /* Hide old slideshow styles for this new implementation */
 .slideshow { display: none; }
 
+/* Full-bleed slideshow */
+.section#slideshow .swiper {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.section#slideshow .swiper,
+.section#slideshow .swiper-wrapper,
+.section#slideshow .swiper-slide {
+  height: 900px;
+}
+
+@media (max-width: 1024px) {
+  .section#slideshow .swiper,
+  .section#slideshow .swiper-wrapper,
+  .section#slideshow .swiper-slide {
+    height: 680px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section#slideshow .swiper,
+  .section#slideshow .swiper-wrapper,
+  .section#slideshow .swiper-slide {
+    height: 480px;
+  }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr }
@@ -277,3 +311,10 @@ input:focus, textarea:focus, select:focus { border-color: var(--primary); box-sh
 .brand-text { align-items: flex-start; text-align: left }
 .logo .brand-text .brand-line:first-child { font-size: 36px !important }
 .logo .brand-text .brand-line:last-child { font-size: 18px !important }
+/* About us mega panel layout spacing */
+.mega .about-grid { 
+  gap: 72px; /* much bigger space between Mission Statement and People */
+}
+@media (max-width: 1000px) {
+  .mega .about-grid { gap: 36px; }
+}
