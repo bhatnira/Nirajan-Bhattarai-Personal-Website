@@ -70,10 +70,103 @@ function mount(html) {
 
 function renderHome() {
   mount(`
-  <section class="hero hero--full">
-    <div class="hero-inner"></div>
+  <section class="section" id="slideshow">
+    <div class="container">
+      <div class="slideshow">
+        <img class="slide active" src="/public/assets/images/IMG_3773.jpg" alt="Roy Lab photo 1" />
+        <img class="slide" src="/public/assets/images/IMG_3785.jpg" alt="Roy Lab photo 2" />
+        <img class="slide" src="/public/assets/images/IMG_3815.jpg" alt="Roy Lab photo 3" />
+        <img class="slide" src="/public/assets/images/IMG_3851.jpg" alt="Roy Lab photo 4" />
+        <div class="slideshow-controls">
+          <button class="prev" aria-label="Previous">‹</button>
+          <button class="next" aria-label="Next">›</button>
+        </div>
+        <div class="dots"></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="card" style="padding:20px">
+        <h3 style="margin:0">The Roy Laboratory has moved to UT Health Science Center on November 8, 2024</h3>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px">
+        <div class="card" style="padding:20px; display:flex; align-items:center;">
+          <div>
+            <address style="font-style: normal; color: var(--text)">
+              <strong>UTHSC - Roy Laboratory</strong><br/>
+            </address>
+            <div style="margin-top:10px; color: var(--text)">
+              <div>881 Madison Avenue</div>
+              <div>Pharmacy Building_05_571</div>
+              <div>Memphis, TN 38163</div>
+              <div><a href="mailto:roy@uthsc.edu">roy@uthsc.edu</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="padding:0; overflow:hidden; display:flex">
+          <iframe title="UTHSC Map" src="https://www.google.com/maps?q=881+Madison+Avenue,+Pharmacy+Building_05_571,+Memphis,+TN+38163&output=embed" width="100%" style="border:0; flex:1; min-height:260px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
   </section>
   `);
+
+  startSlideshow();
+}
+
+function startSlideshow() {
+  const slides = Array.from(document.querySelectorAll('.slideshow .slide'));
+  const dotsContainer = document.querySelector('.slideshow .dots');
+  const prev = document.querySelector('.slideshow .prev');
+  const next = document.querySelector('.slideshow .next');
+  let index = 0;
+  let timer;
+
+  // Create dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to slide ${i+1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsContainer.querySelectorAll('.dot'));
+
+  function show(i) {
+    slides.forEach((s, idx) => {
+      s.classList.toggle('active', idx === i);
+    });
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    show(index);
+    restartTimer();
+  }
+
+  function nextSlide() { goTo(index + 1); }
+  function prevSlide() { goTo(index - 1); }
+
+  function restartTimer() {
+    clearInterval(timer);
+    timer = setInterval(nextSlide, 4000);
+  }
+
+  prev.addEventListener('click', prevSlide);
+  next.addEventListener('click', nextSlide);
+
+  // Start
+  show(0);
+  restartTimer();
+
+  // Respect reduced motion
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mediaQuery.matches) {
+    clearInterval(timer);
+  }
 }
 
 function renderResearch() {

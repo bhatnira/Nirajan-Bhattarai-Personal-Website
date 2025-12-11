@@ -241,6 +241,42 @@ input:focus, textarea:focus, select:focus { border-color: var(--primary); box-sh
 .impact-copy p:first-child { margin-top: 0 }
 .impact-copy p:last-child { margin-bottom: 0 }
 
+/* Slideshow styles */
+.slideshow { position: relative; overflow: hidden; border-radius: 16px; box-shadow: var(--shadow); }
+.slideshow .slide { display: none; width: 100%; height: auto }
+.slideshow .slide.active { display: block }
+.slideshow-controls { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; pointer-events: none }
+.slideshow-controls button { pointer-events: auto; background: rgba(0,0,0,0.4); color: #fff; border: none; border-radius: 999px; width: 36px; height: 36px; font-size: 22px; display: grid; place-items: center }
+.slideshow .dots { display: flex; gap: 8px; position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%) }
+.slideshow .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.6); border: none; cursor: pointer }
+.slideshow .dot.active { background: var(--primary) }
+
+/* Slideshow sizing tweaks */
+/* Reduce image height but keep full width and cover */
+.slideshow {
+  /* Ensure the container doesn't grow too tall */
+  max-height: 380px;
+}
+.slideshow .slide {
+  width: 100%;
+  height: 380px; /* matches container height */
+  object-fit: contain; /* show full image without cropping */
+  background-color: #f5f7fa; /* subtle backdrop for letterboxing */
+}
+/* Ensure controls remain legible on shorter slides */
+.slideshow .slideshow-controls button {
+  font-size: 22px;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slideshow { max-height: 300px; }
+  .slideshow .slide { height: 300px; }
+}
+@media (max-width: 480px) {
+  .slideshow { max-height: 240px; }
+  .slideshow .slide { height: 240px; }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr }
