@@ -72,16 +72,19 @@ function renderHome() {
   mount(`
   <section class="section" id="slideshow">
     <div class="container">
-      <div class="slideshow">
-        <img class="slide active" src="/public/assets/images/IMG_3773.jpg" alt="Roy Lab photo 1" />
-        <img class="slide" src="/public/assets/images/IMG_3785.jpg" alt="Roy Lab photo 2" />
-        <img class="slide" src="/public/assets/images/IMG_3815.jpg" alt="Roy Lab photo 3" />
-        <img class="slide" src="/public/assets/images/IMG_3851.jpg" alt="Roy Lab photo 4" />
-        <div class="slideshow-controls">
-          <button class="prev" aria-label="Previous">‹</button>
-          <button class="next" aria-label="Next">›</button>
+      <!-- Swiper -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="/public/assets/images/IMG_3773.jpg" alt="Roy Lab photo 1" /></div>
+          <div class="swiper-slide"><img src="/public/assets/images/IMG_3785.jpg" alt="Roy Lab photo 2" /></div>
+          <div class="swiper-slide"><img src="/public/assets/images/IMG_3815.jpg" alt="Roy Lab photo 3" /></div>
+          <div class="swiper-slide"><img src="/public/assets/images/IMG_3851.jpg" alt="Roy Lab photo 4" /></div>
         </div>
-        <div class="dots"></div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </div>
   </section>
@@ -112,61 +115,15 @@ function renderHome() {
   </section>
   `);
 
-  startSlideshow();
-}
-
-function startSlideshow() {
-  const slides = Array.from(document.querySelectorAll('.slideshow .slide'));
-  const dotsContainer = document.querySelector('.slideshow .dots');
-  const prev = document.querySelector('.slideshow .prev');
-  const next = document.querySelector('.slideshow .next');
-  let index = 0;
-  let timer;
-
-  // Create dots
-  slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', `Go to slide ${i+1}`);
-    dot.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(dot);
+  // Initialize Swiper
+  new Swiper('.swiper', {
+    loop: true,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    effect: 'slide',
+    speed: 600,
   });
-
-  const dots = Array.from(dotsContainer.querySelectorAll('.dot'));
-
-  function show(i) {
-    slides.forEach((s, idx) => {
-      s.classList.toggle('active', idx === i);
-    });
-    dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
-  }
-
-  function goTo(i) {
-    index = (i + slides.length) % slides.length;
-    show(index);
-    restartTimer();
-  }
-
-  function nextSlide() { goTo(index + 1); }
-  function prevSlide() { goTo(index - 1); }
-
-  function restartTimer() {
-    clearInterval(timer);
-    timer = setInterval(nextSlide, 4000);
-  }
-
-  prev.addEventListener('click', prevSlide);
-  next.addEventListener('click', nextSlide);
-
-  // Start
-  show(0);
-  restartTimer();
-
-  // Respect reduced motion
-  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (mediaQuery.matches) {
-    clearInterval(timer);
-  }
 }
 
 function renderResearch() {
