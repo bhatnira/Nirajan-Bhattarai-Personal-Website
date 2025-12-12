@@ -902,6 +902,63 @@ function publications() {
   ];
 }
 
+function renderJoinUs() {
+  mount(`
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+        <h2>Join Us</h2>
+        
+        <div style="margin-top: 48px;">
+          <h3>Opportunities for Postdoctoral Research Associates</h3>
+          <p style="margin-top: 16px; line-height: 1.8;">
+            My objective for post-docs is helping you build a strong portfolio for a successful transition to pharmaceutical industries, academia or alternate scientific careers. In exchange, I expect you to demonstrate quality and independent research encompassing the goals of this research program. Motivated applicants with strong background in total synthesis, synthetic methods development, and medicinal chemistry are encouraged to apply. You will have the opportunity to diversify your skill sets into drug discovery and chemical biology. If you are interested in applying please send me an email with a cover letter, a CV, a brief research summary, and contact information of three references.
+          </p>
+        </div>
+
+        <div style="margin-top: 48px;">
+          <h3>Training Opportunities for Graduate Students</h3>
+          <p style="margin-top: 16px; line-height: 1.8;">
+            If you are interested in joining our group at the M.S. or Ph.D. level please send me an email explaining why you are interested in joining my lab, your previous research accomplishments, GRE scores, and contact information for three references. I am primarily interested in students who have a focus on organic and medicinal chemistry with interests in drug discovery and chemical biology. Although prior research experience is not necessary, it is considered a plus. All prospective graduate students should also apply via the <a href="https://www.uthsc.edu/pharmacy/admissions/graduate/" target="_blank">UTHSC Pharmacy Graduate Application</a> portal. All application materials must be submitted through the UTHSC Graduate School's online application system.
+          </p>
+        </div>
+
+        <div style="margin-top: 48px;">
+          <h3>Undergraduate Students</h3>
+          <p style="margin-top: 16px; line-height: 1.8;">
+            We are always looking for talented and motivated Honors college/pre-med/pre-pharmacy students with research interests in organic chemistry and drug discovery. Interested applicants should send me an email with their CV stating their research interests. Undergraduate research assistants are expected to register for a minimum of 3 credit hours per semester expected to spend 9 hours per week doing research, reading the literature, assisting the lab in various capacities.
+          </p>
+          <p style="margin-top: 16px; line-height: 1.8;">
+            There are also work-study and informal volunteer opportunities available.
+          </p>
+        </div>
+
+        <div style="margin-top: 64px;">
+          <h3>Contact us</h3>
+          <form style="margin-top: 24px; display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500;">Name</label>
+              <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 16px;">
+            </div>
+            <div>
+              <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500;">Email</label>
+              <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 16px;">
+            </div>
+            <div>
+              <label for="subject" style="display: block; margin-bottom: 8px; font-weight: 500;">Subject</label>
+              <input type="text" id="subject" name="subject" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 16px;">
+            </div>
+            <div>
+              <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500;">Message</label>
+              <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 16px; resize: vertical;"></textarea>
+            </div>
+            <button type="submit" style="padding: 12px 24px; background: var(--primary); color: white; border: none; border-radius: 4px; font-size: 16px; font-weight: 500; cursor: pointer;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  `);
+}
+
 function newsItems() {
   return [
     { 
@@ -959,6 +1016,9 @@ function router() {
       break;
     case 'news':
       renderNews();
+      break;
+    case 'join-us':
+      renderJoinUs();
       break;
     case 'contact':
       renderContact();
