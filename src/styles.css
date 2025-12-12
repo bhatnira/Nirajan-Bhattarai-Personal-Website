@@ -318,3 +318,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--primary); box-sh
 @media (max-width: 1000px) {
   .mega .about-grid { gap: 36px; }
 }
+
+/* Wider layout for Research and other centered pages */
+.centered-page .container { max-width: 1400px; }
+.centered-page .card { width: 100%; }

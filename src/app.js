@@ -21,7 +21,10 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('year').textContent = new Date().getFullYear();
   setupMenu();
   setupMegaMenu(); // now a no-op
-  navigate();
+  // Initialize routing on load
+  router();
+  // Listen for hash changes
+  window.addEventListener('hashchange', router);
 });
 
 function setupMenu() {
@@ -101,23 +104,31 @@ function renderHome() {
   });
 }
 
-function renderResearch() {
-  mount(`
-  <section class="section">
-    <div class="container">
-      <h2>Research</h2>
-      <p class="sub">Overview of active projects and themes.</p>
-      <div class="grid cards">
-        ${researchItems().map(r => `
-          <div class="card">
-            <h3>${r.title}</h3>
-            <p>${r.summary}</p>
-          </div>
-        `).join('')}
+function renderResearch(root) {
+  root.innerHTML = `
+    <section class="centered-page">
+      <div class="container">
+        <div class="card">
+          <h1>Research</h1>
+          <p>
+The Roy Laboratory is focused on developing new technologies at the interface of chemistry and biology. To this end, we explore and develop new methods to synthesize small molecules and apply them in various drug discovery and chemical biology programs. We are particularly interested in the following areas:
+          </p>
+        </div>
+        <div class="card">
+          <h2>Target-based discovery of chemotherapeutics against Mycobacterium tuberculosis and other antibiotic-resistant bacterial infections.</h2>
+          <p>
+Drug-resistant infections present a global health risk that needs urgent scientific interventions. In the United States alone, two million people become infected with antibiotic-resistant bacteria leading to 23,000 deaths each year. Unfortunately, our arsenal of new drugs is insufficient to combat the multi-drug resistant and extreme-drug resistant bacteria, commonly known as “superbugs”. To this end, we are working on developing new antibiotics or chemotherapeutic agents to combat this growing challenge of antibacterial resistance utilizing a structure-based drug design approach targeting MraY, a membrane-bound protein that plays a key role in peptidoglycan biosynthesis.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Synthesis and library construction of chemical scaffolds for screening against therapeutic targets.</h2>
+          <p>
+We are also interested in developing technologies around fluorine-containing compounds as well discovering new chemical reactivity. Fluorinated molecules confer unique pharmacokinetic properties and binding interactions and contain 100% abundant 19F natural isotope. We are creating new technologies to synthesize new chemical entities, both fluorinated and non-fluorinated molecules, that could be used in various drug discovery platforms. We are developing a library comprising of fluorinated molecules that will be screened against new and existing targets using 19F NMR assay platform.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-  `);
+    </section>
+  `;
 }
 
 function renderPeople() {
@@ -316,6 +327,33 @@ function renderImpact() {
   `);
 }
 
+function renderResearchDetails(root) {
+  root.innerHTML = `
+    <section class="centered-page">
+      <div class="container">
+        <div class="card">
+          <h1>Research</h1>
+          <p>
+The Roy Laboratory is focused on developing new technologies at the interface of chemistry and biology. To this end, we explore and develop new methods to synthesize small molecules and apply them in various drug discovery and chemical biology programs. We are particularly interested in the following areas:
+          </p>
+        </div>
+        <div class="card">
+          <h2>Target-based discovery of chemotherapeutics against Mycobacterium tuberculosis and other antibiotic-resistant bacterial infections.</h2>
+          <p>
+Drug-resistant infections present a global health risk that needs urgent scientific interventions. In the United States alone, two million people become infected with antibiotic-resistant bacteria leading to 23,000 deaths each year. Unfortunately, our arsenal of new drugs is insufficient to combat the multi-drug resistant and extreme-drug resistant bacteria, commonly known as “superbugs”. To this end, we are working on developing new antibiotics or chemotherapeutic agents to combat this growing challenge of antibacterial resistance utilizing a structure-based drug design approach targeting MraY, a membrane-bound protein that plays a key role in peptidoglycan biosynthesis.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Synthesis and library construction of chemical scaffolds for screening against therapeutic targets.</h2>
+          <p>
+We are also interested in developing technologies around fluorine-containing compounds as well discovering new chemical reactivity. Fluorinated molecules confer unique pharmacokinetic properties and binding interactions and contain 100% abundant 19F natural isotope. We are creating new technologies to synthesize new chemical entities, both fluorinated and non-fluorinated molecules, that could be used in various drug discovery platforms. We are developing a library comprising of fluorinated molecules that will be screened against new and existing targets using 19F NMR assay platform.
+          </p>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 // Data (Placeholder)
 function researchItems() {
   return [
@@ -364,4 +402,39 @@ function newsItems() {
     { title: 'Conference Keynote', date: 'Jul 2025', summary: 'Dr. Roy delivered a keynote at the International Bioengineering Conference.' },
     { title: 'Collaboration Announcement', date: 'Apr 2025', summary: 'We are partnering with clinical researchers to translate our findings.' },
   ];
+}
+
+function router() {
+  const root = document.getElementById('app'); // render into <main id="app">
+  const hash = (location.hash || '#home').replace('#', '');
+  switch (hash) {
+    case 'home':
+      renderHome();
+      break;
+    case 'research':
+      renderResearch(root);
+      break;
+    case 'people':
+      renderPeople();
+      break;
+    case 'publications':
+      renderPublications();
+      break;
+    case 'news':
+      renderNews();
+      break;
+    case 'contact':
+      renderContact();
+      break;
+    case 'impact':
+      renderImpact();
+      break;
+    case 'research-details':
+      // Redirect to main research page for unified experience
+      renderResearch(root);
+      break;
+    default:
+      renderHome();
+      break;
+  }
 }
