@@ -1,8 +1,8 @@
-# Roy Laboratory Website
+# Nirajan Bhattarai's Website
 
-Welcome! This is the official website for the Roy Laboratory at UTHSC College of Pharmacy, led by Dr. Sudeshna Roy, Ph.D. Our team is dedicated to developing innovative medicines to fight drug-resistant infections, supported by $4.9M in NIH funding.
+Welcome! This is the personal website of Nirajan Bhattarai. This website showcases my work, projects, publications, and professional journey.
 
-This guide will help you navigate, update, and maintain the website, whether you're a lab member adding news or a developer working on the code.
+This guide will help you navigate, update, and maintain the website.
 
 ---
 
@@ -48,21 +48,21 @@ Then visit: http://localhost:8000 in your browser
 </details>
 
 <details>
-<summary><strong>For Lab Members & Content Editors</strong> - Simple update guide</summary>
+<summary><strong>For Content Editors</strong> - Simple update guide</summary>
 
-### For Lab Members & Content Editors
+### For Content Editors
 
-Don't worry if you're not a programmer! This section is written for you. Updating the website is simpler than you think.
+This section is written for you. Updating the website is simpler than you think.
 
 **What You Can Update**
 
 You can easily update these parts of the website:
 
-- **News and Announcements** - Share lab news, awards, and media coverage
+- **News and Announcements** - Share news, awards, and media coverage
 - **Publications** - Add new research papers as they're published
 - **Team Members** - Welcome new members or update existing profiles
-- **Photos** - Add images from lab events and activities
-- **Dr. Roy's CV** - Keep the resume up to date
+- **Photos** - Add images from events and activities
+- **CV/Resume** - Keep your CV up to date
 
 **Before You Start**
 
@@ -178,20 +178,20 @@ Photos make the website come alive! Here's how to add them properly:
 
 ---
 
-**Update Dr. Roy's CV**
+**Update Your CV**
 
-Need to update Dr. Roy's CV? There are two ways to do this:
+Need to update your CV? There are two ways to do this:
 
 **The Simple Way (No code changes needed):**
 
-1. Navigate to the folder: `public/assets/Roy-CV-updated-Oct2025/`
+1. Navigate to the folder: `public/assets/` (where your CV is stored)
 2. Replace the existing PDF with the new CV file
-3. Important: Keep the exact same filename - `Sudeshna Roy CV_Oct 2025.pdf`
+3. Important: Keep the exact same filename
 
 **If you want to use a different filename:**
 
 1. Open `src/app.js` in your text editor
-2. Search for the current filename: `Sudeshna Roy CV_Oct 2025.pdf`
+2. Search for the current CV filename
 3. Replace it with your new filename everywhere it appears
 4. Save the file and you're done!
 
@@ -231,12 +231,12 @@ We've kept things simple and maintainable:
 ### Project Structure
 
 ```
-Roy-Laboratory-Website/
+Website/
 ├── public/                          ← The actual website
 │   ├── index.html                   ← Main structure & navigation
 │   └── assets/
 │       ├── images/                  ← All photos (add new ones here)
-│       └── Roy-CV-*.pdf             ← Dr. Roy's CV
+│       └── CV.pdf                   ← Your CV/Resume
 │
 ├── src/                             ← Website code
 │   ├── app.js                       ← Main logic (pages, data, routing)
@@ -345,12 +345,12 @@ Ready to make your changes live? Here are two free hosting options:
 
 GitHub Pages is completely free and automatically deploys your site:
 
-1. Visit your repository: https://github.com/bhatnira/Roy-Laboratory-Website
+1. Visit your repository on GitHub
 2. Click on **Settings** (top menu), then **Pages** (left sidebar)
 3. Under "Source", select the `main` branch
 4. Under "Folder", choose `/public`
 5. Click **Save** and wait 2-3 minutes for deployment
-6. Your site will be live at: `https://bhatnira.github.io/Roy-Laboratory-Website/`
+6. Your site will be live!
 
 The best part? Every time you push changes to GitHub, the site automatically updates within a few minutes!
 
@@ -363,7 +363,7 @@ Netlify is another excellent free option with some nice extra features:
 1. Visit [netlify.com](https://netlify.com) and create a free account
 2. Click the "New site from Git" button
 3. Connect your GitHub account when prompted
-4. Select the Roy Laboratory repository
+4. Select your repository
 5. Set the "Publish directory" to: `public`
 6. Click "Deploy site" and wait a minute or two
 7. Netlify will give you a free URL (which you can customize if you like!)
@@ -519,7 +519,7 @@ Before you push your changes live, run through this quick checklist:
 | Add publication | `src/app.js` → find `<div class="pub-item">` |
 | Add team member | `src/app.js` → `function teamData()` |
 | Add photos | `public/assets/images/` folder |
-| Update CV | `public/assets/Roy-CV-updated-Oct2025/` |
+| Update CV | `public/assets/` folder |
 | Change colors | `src/styles.css` → `:root` variables |
 
 **Keyboard Shortcuts**
@@ -546,24 +546,20 @@ git push origin main       # Upload to GitHub
 
 If you run into issues or have questions about the website, feel free to reach out:
 
-**Roy Laboratory**  
-College of Pharmacy  
-Department of Pharmaceutical Sciences  
-881 Madison Avenue, Pharmacy Building 05_571  
-Memphis, TN 38163
+**Nirajan Bhattarai**
 
-Email: roy@uthsc.edu
+Email: [Your Email Address]
 
-We're here to help!
+Happy to help!
 
 ---
 
 ## License
 
-© 2025 Roy Laboratory, UTHSC. All rights reserved.
+© 2026 Nirajan Bhattarai. All rights reserved.
 
 ---
 
-**Maintained with care by the Roy Laboratory team**
+**Maintained with care by Nirajan Bhattarai**
 
-Last updated: December 17, 2025
+Last updated: January 21, 2026
