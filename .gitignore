@@ -51,3 +51,14 @@ build/
 .env
 .env.local
 .env.*.local
+
+# Archive folder (old files)
+archive/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
