@@ -271,10 +271,6 @@ function renderResearch(root) {
 My research focuses on developing and applying artificial intelligence and machine learning methodologies to accelerate drug discovery and development. I integrate computational chemistry, structural biology, and advanced machine learning techniques to design novel therapeutic compounds and elucidate structure-activity relationships in medicinal chemistry.
           </p>
         </div>
-        <!-- Image directly below the intro text -->
-        <div class="card">
-          <img src="assets/images/Research-Summary_2018.webp?v=4" alt="Research Overview" style="width: 100%; height: auto; display: block;" />
-        </div>
         <div class="card">
           <h2>AI-Driven Drug Discovery & QSAR Modeling</h2>
           <p>
