@@ -348,50 +348,27 @@ function renderImpact() {
       <div class="container">
         <div class="card">
           <h1>About Me</h1>
-          <div style="margin-top: 24px;">
-            <h2>Professional Background</h2>
-            <p>
-              I am a Postdoctoral Researcher specializing in AI-driven drug discovery and computational pharmaceutical sciences. 
-              My work focuses on developing and applying artificial intelligence and machine learning methodologies to accelerate 
-              drug discovery and development. I integrate computational chemistry, structural biology, and advanced machine learning 
-              techniques to design novel therapeutic compounds and elucidate structure-activity relationships in medicinal chemistry.
-            </p>
-          </div>
-
-          <div style="margin-top: 32px;">
-            <h2>Research Expertise</h2>
-            <p>
-              My expertise spans multiple cutting-edge areas in computational drug discovery:
-            </p>
-            <ul style="margin-top: 16px; line-height: 1.8;">
-              <li><strong>AI-Driven Drug Discovery:</strong> Developing QSAR models using machine learning and deep learning for molecular property prediction and virtual screening</li>
-              <li><strong>Protein Structure Prediction:</strong> Utilizing AlphaFold, RoseTTAFold, and molecular dynamics simulations for protein-ligand interaction analysis</li>
-              <li><strong>Generative AI:</strong> Applying VAEs, GANs, and transformer architectures for de novo molecular design</li>
-              <li><strong>Explainable AI (XAI):</strong> Developing interpretable models using SHAP, attention mechanisms, and feature importance analysis</li>
-              <li><strong>Low Data Drug Discovery:</strong> Leveraging transfer learning and few-shot learning for data-scarce scenarios</li>
-              <li><strong>Computer Vision:</strong> Applying deep learning to biomedical imaging with interpretable diagnostic models</li>
-            </ul>
-          </div>
-
-          <div style="margin-top: 32px;">
-            <h2>Academic Journey</h2>
-            <p>
-              Throughout my academic career, I have been dedicated to advancing the field of computational pharmaceutical sciences. 
-              My interdisciplinary approach combines chemistry, biology, computer science, and artificial intelligence to tackle 
-              complex challenges in drug discovery. I am committed to developing innovative computational tools that bridge the gap 
-              between basic research and practical pharmaceutical applications.
-            </p>
-          </div>
-
-          <div style="margin-top: 32px;">
-            <h2>Collaboration & Outreach</h2>
-            <p>
-              I actively collaborate with researchers across multiple institutions and disciplines. I am passionate about knowledge 
-              sharing and contributing to the scientific community through publications, presentations, and open-source tools. 
-              If you're interested in collaboration opportunities or would like to discuss research ideas, please feel free to 
-              <a href="#contact" style="color: var(--primary); text-decoration: none; font-weight: 600;">get in touch</a>.
-            </p>
-          </div>
+          <p>
+I am a Postdoctoral Researcher specializing in AI-driven drug discovery and computational pharmaceutical sciences. My work focuses on developing and applying artificial intelligence and machine learning methodologies to accelerate drug discovery and development. I integrate computational chemistry, structural biology, and advanced machine learning techniques to design novel therapeutic compounds and elucidate structure-activity relationships in medicinal chemistry.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Research Expertise</h2>
+          <p>
+My expertise spans multiple cutting-edge areas in computational drug discovery. I develop QSAR models using machine learning and deep learning for molecular property prediction and virtual screening. I utilize AlphaFold, RoseTTAFold, and molecular dynamics simulations for protein-ligand interaction analysis. I apply VAEs, GANs, and transformer architectures for de novo molecular design. I develop interpretable models using SHAP, attention mechanisms, and feature importance analysis for explainable AI. I leverage transfer learning and few-shot learning for data-scarce scenarios in low data drug discovery. I also apply deep learning to biomedical imaging with interpretable diagnostic models.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Academic Journey</h2>
+          <p>
+Throughout my academic career, I have been dedicated to advancing the field of computational pharmaceutical sciences. My interdisciplinary approach combines chemistry, biology, computer science, and artificial intelligence to tackle complex challenges in drug discovery. I am committed to developing innovative computational tools that bridge the gap between basic research and practical pharmaceutical applications.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Collaboration & Outreach</h2>
+          <p>
+I actively collaborate with researchers across multiple institutions and disciplines. I am passionate about knowledge sharing and contributing to the scientific community through publications, presentations, and open-source tools. If you're interested in collaboration opportunities or would like to discuss research ideas, please feel free to <a href="#contact" style="color: var(--primary); text-decoration: none; font-weight: 600;">get in touch</a>.
+          </p>
         </div>
       </div>
     </section>
