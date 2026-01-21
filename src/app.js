@@ -77,7 +77,7 @@ function renderHome() {
               <div>Roy Laboratory</div>
               <div>Department of Pharmaceutical Sciences</div>
               <div>UT Health Science Center</div>
-              <div style="margin-top: 12px;"><a href="mailto:contact@nirajanbhattarai.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">contact@nirajanbhattarai.com</a></div>
+              <div style="margin-top: 12px;"><a href="mailto:nbhatta1@uthsc.edu" style="color: var(--primary); text-decoration: none; font-weight: 600;">nbhatta1@uthsc.edu</a></div>
             </div>
           </div>
         </div>
