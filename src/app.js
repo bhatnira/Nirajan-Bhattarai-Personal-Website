@@ -88,18 +88,22 @@ function renderHome() {
               <strong>Nirajan Bhattarai</strong><br/>
             </address>
             <div style="margin-top:10px; color: var(--text)">
-              <div>Academic & Research Professional</div>
-              <div><a href="mailto:contact@nirajanbhattarai.com">contact@nirajanbhattarai.com</a></div>
+              <div>Postdoctoral Researcher</div>
+              <div>Roy Laboratory</div>
+              <div>Department of Pharmaceutical Sciences</div>
+              <div>UT Health Science Center</div>
+              <div style="margin-top: 8px;"><a href="mailto:contact@nirajanbhattarai.com">contact@nirajanbhattarai.com</a></div>
             </div>
           </div>
         </div>
         <div class="card" style="padding:20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
           <h3 style="margin-top: 0; color: white;">Research Interests</h3>
           <ul style="list-style: none; padding: 0; margin-top: 16px;">
-            <li style="margin-bottom: 8px;">• Computational Biology</li>
-            <li style="margin-bottom: 8px;">• Bioinformatics & Data Science</li>
-            <li style="margin-bottom: 8px;">• Machine Learning in Life Sciences</li>
-            <li style="margin-bottom: 8px;">• Systems Biology</li>
+            <li style="margin-bottom: 8px;">• AI-Driven Drug Discovery</li>
+            <li style="margin-bottom: 8px;">• QSAR Modeling & Cheminformatics</li>
+            <li style="margin-bottom: 8px;">• Protein Structure Prediction & Modeling</li>
+            <li style="margin-bottom: 8px;">• Generative Models for De Novo Drug Design</li>
+            <li style="margin-bottom: 8px;">• Explainable AI (XAI) in Pharmaceutical Sciences</li>
           </ul>
         </div>
       </div>
@@ -125,7 +129,7 @@ function renderResearch(root) {
         <div class="card">
           <h1>Research & Projects</h1>
           <p>
-My research focuses on computational approaches to biological problems, integrating machine learning, systems biology, and bioinformatics to advance our understanding of complex biological systems. I am particularly interested in developing innovative computational methods and tools that can accelerate discovery in life sciences.
+My research focuses on developing and applying artificial intelligence and machine learning methodologies to accelerate drug discovery and development. I integrate computational chemistry, structural biology, and advanced machine learning techniques to design novel therapeutic compounds and elucidate structure-activity relationships in medicinal chemistry.
           </p>
         </div>
         <!-- Image directly below the intro text -->
@@ -133,21 +137,27 @@ My research focuses on computational approaches to biological problems, integrat
           <img src="assets/images/Research-Summary_2018.webp?v=4" alt="Research Overview" style="width: 100%; height: auto; display: block;" />
         </div>
         <div class="card">
-          <h2>Computational Biology & Systems Modeling</h2>
+          <h2>AI-Driven Drug Discovery & QSAR Modeling</h2>
           <p>
-I develop computational models to understand complex biological systems, with a focus on integrating multi-omics data and leveraging machine learning techniques. My work aims to bridge the gap between computational predictions and biological insights, enabling data-driven discoveries in areas such as drug response prediction, disease mechanism characterization, and personalized medicine approaches.
+I develop quantitative structure-activity relationship (QSAR) models using machine learning and deep learning algorithms to predict molecular properties, bioactivity, and ADMET characteristics. By integrating molecular descriptors, fingerprints, and graph-based representations with advanced regression and classification techniques, I enable rational design of drug candidates with optimized pharmacological profiles. My work encompasses both ligand-based and structure-based virtual screening approaches to identify promising hits from large chemical libraries.
           </p>
         </div>
         <div class="card">
-          <h2>Bioinformatics Pipeline Development</h2>
+          <h2>Protein Structure Prediction & Molecular Modeling</h2>
           <p>
-I design and implement scalable bioinformatics workflows for processing and analyzing large-scale biological datasets. This includes developing custom tools for genomic data analysis, RNA-seq processing, and integrative multi-omics studies. My pipelines emphasize reproducibility, efficiency, and accessibility to enable researchers to extract meaningful insights from complex biological data.
+I employ state-of-the-art computational methods for protein structure prediction, homology modeling, and molecular dynamics simulations to understand protein-ligand interactions at atomic resolution. Utilizing deep learning architectures such as AlphaFold and RoseTTAFold, combined with molecular docking and binding free energy calculations, I investigate binding mechanisms and predict protein conformational changes. This structure-based approach guides the design of selective inhibitors and optimizes lead compounds for enhanced target affinity and specificity.
           </p>
         </div>
         <div class="card">
-          <h2>Machine Learning Applications in Life Sciences</h2>
+          <h2>Generative Models for De Novo Molecular Design</h2>
           <p>
-I apply modern machine learning and deep learning techniques to biological problems, including feature engineering from biological datasets, predictive modeling, and pattern recognition in high-dimensional data. My work explores how AI can enhance our ability to understand biological processes, predict outcomes, and generate hypotheses for experimental validation.
+I develop and apply generative AI models, including variational autoencoders (VAEs), generative adversarial networks (GANs), and transformer-based architectures, to design novel molecular structures with desired properties. These models learn from chemical space representations and generate drug-like molecules that satisfy multiple optimization criteria, including synthetic accessibility, target affinity, and drug-likeness. By incorporating reinforcement learning and multi-objective optimization, I explore uncharted regions of chemical space to discover innovative scaffolds for therapeutic development.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Explainable AI (XAI) in Pharmaceutical Sciences</h2>
+          <p>
+I focus on developing interpretable machine learning models that provide mechanistic insights into molecular activity predictions. Using techniques such as SHAP (SHapley Additive exPlanations), attention mechanisms, and feature importance analysis, I identify key molecular features and structural motifs responsible for biological activity. This explainability framework enables medicinal chemists to understand model predictions, validate computational findings against known structure-activity relationships, and make informed decisions in lead optimization campaigns, ultimately bridging the gap between AI predictions and actionable pharmaceutical knowledge.
           </p>
         </div>
       </div>
@@ -167,9 +177,9 @@ function renderMembers(root) {
             </div>
             <div>
               <h3>Nirajan Bhattarai</h3>
-              <p class="role">Computational Biologist & Bioinformatics Researcher</p>
+              <p class="role">Postdoctoral Researcher - AI-Driven Drug Discovery</p>
               <p style="margin-top: 12px; font-size: 14px; line-height: 1.6;">
-                Specializing in machine learning applications, systems biology, and computational methods for biological discovery.
+                Specializing in QSAR modeling, protein structure prediction, generative AI for molecular design, and explainable AI in pharmaceutical sciences.
               </p>
             </div>
           </div>
@@ -464,9 +474,11 @@ function renderImpact() {
       <div class="grid impact-grid">
         <div>
           <div class="card impact-copy">
-            <p>I am a computational biologist and bioinformatics researcher with a passion for leveraging computational approaches to solve complex biological problems. My work sits at the intersection of computer science, mathematics, and life sciences, where I develop innovative tools and methods to extract insights from biological data.</p>
-            <p>I specialize in integrating multi-omics datasets, building machine learning models for biological prediction tasks, and creating reproducible bioinformatics pipelines. My research interests span systems biology, precision medicine, and the application of artificial intelligence to accelerate biological discovery.</p>
-            <p>I am committed to open science practices and believe in making computational tools accessible to the broader research community. Through my work, I aim to contribute to our understanding of biological systems and help translate computational findings into real-world impact.</p>
+            <p>I am currently a Postdoctoral Researcher at the Roy Laboratory in the Pharmaceutical Sciences Department at UT Health Science Center, specializing in AI-driven drug discovery and computational pharmaceutical sciences.</p>
+            <p>My research leverages artificial intelligence and machine learning to accelerate the drug discovery pipeline. I develop and apply Quantitative Structure-Activity Relationship (QSAR) models to predict molecular properties and biological activities, enabling rational design of novel therapeutic compounds. My work encompasses structure-based and ligand-based drug design approaches, integrating cheminformatics with advanced machine learning algorithms.</p>
+            <p>A key focus of my research is protein structure prediction and modeling, utilizing deep learning architectures to understand protein-ligand interactions and binding mechanisms. I employ generative models, including variational autoencoders (VAEs), generative adversarial networks (GANs), and transformer-based architectures, to design de novo molecular structures with optimized pharmacological profiles.</p>
+            <p>I am particularly interested in explainable AI (XAI) for drug discovery, developing interpretable machine learning models that provide mechanistic insights into molecular activity predictions. This approach bridges the gap between black-box predictions and actionable pharmaceutical knowledge, enabling researchers to understand the molecular features driving biological activity and make informed decisions in lead optimization.</p>
+            <p>My work aims to integrate computational predictions with experimental validation, contributing to more efficient and cost-effective drug development processes while advancing our understanding of structure-function relationships in medicinal chemistry.</p>
           </div>
         </div>
         <div class="media impact-video">
