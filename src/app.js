@@ -1,15 +1,15 @@
 /**
- * Roy Laboratory Website - Main JavaScript File
+ * Nirajan Bhattarai Personal Website - Main JavaScript File
  * 
  * This file contains all the website logic:
- * - Page rendering functions (renderHome, renderNews, etc.)
- * - Data storage (news, publications, team members)
+ * - Page rendering functions (renderHome, renderNews/Blog, etc.)
+ * - Data storage (blog posts, publications, profile)
  * - Navigation/routing between pages
  * 
  * To update content, search for the section you need:
- * - News: Search for "function newsItems()"
- * - Publications: Search for "<div class="pub-item">"
- * - Team: Search for "function teamData()"
+ * - Blog Posts: Search for "function newsItems()" or "BLOG DATA"
+ * - Publications: Search for "renderPublications"
+ * - About/Profile: Search for "renderImpact"
  */
 
 // ============================================
@@ -403,33 +403,29 @@ function renderSudeshnaRoy() {
 }
 
 function renderNews() {
-  const news = newsItems();
+  const blogPosts = newsItems();
   mount(`
   <section class="section">
     <div class="container" style="max-width: 900px;">
-      <h2>News & Updates</h2>
-      <p class="sub">Recent achievements, publications, and announcements.</p>
+      <h2>Blog</h2>
+      <p class="sub">Thoughts, insights, and updates on AI-driven drug discovery, computational methods, and research.</p>
       <div style="display: flex; flex-direction: column; gap: 32px; margin-top: 32px;">
-        ${news.length > 0 ? news.map(n => `
+        ${blogPosts.length > 0 ? blogPosts.map(post => `
           <article class="card" style="padding: 0; overflow: hidden;">
-            ${n.video ? `
-              <div style="width: 100%; height: 400px; background: #000;">
-                <iframe src="${n.video}" style="width: 100%; height: 100%; border: none;" frameborder="0" scrolling="no" allowtransparency="true" allow="encrypted-media"></iframe>
-              </div>
-            ` : n.image ? `
-              <img src="${n.image}" alt="${n.title}" style="width: 100%; height: 300px; object-fit: cover;">
+            ${post.image ? `
+              <img src="${post.image}" alt="${post.title}" style="width: 100%; height: 300px; object-fit: cover;">
             ` : ''}
             <div style="padding: 24px;">
-              <h3 style="margin-top: 0;">${n.title}</h3>
-              <p class="sub">${n.date}</p>
-              <p>${n.summary}</p>
-              ${n.link ? `<a href="${n.link}" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 12px; display: inline-block;">Read More →</a>` : ''}
+              <h3 style="margin-top: 0;">${post.title}</h3>
+              <p class="sub">${post.date}</p>
+              <p>${post.summary}</p>
+              ${post.link ? `<a href="${post.link}" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 12px; display: inline-block;">Read More →</a>` : ''}
             </div>
           </article>
         `).join('') : `
           <div class="card" style="padding: 48px; text-align: center;">
-            <h3 style="margin-top: 0; color: #666;">No news items yet</h3>
-            <p style="color: #999; margin-top: 12px;">Check back soon for updates and announcements.</p>
+            <h3 style="margin-top: 0; color: #666;">No blog posts yet</h3>
+            <p style="color: #999; margin-top: 12px;">Check back soon for new posts about AI, drug discovery, and computational research.</p>
           </div>
         `}
       </div>
@@ -609,28 +605,28 @@ function renderJoinUs() {
 }
 
 // ============================================
-// NEWS DATA
+// BLOG DATA
 // ============================================
-// TO ADD NEWS: Copy one of the items below and add it at the top of this list
+// TO ADD BLOG POST: Copy the format below and add it at the top of this list
 // Format:
 // {
-//   title: 'Your Title',              // News headline
-//   date: 'Month Day, Year',          // When it was published
-//   summary: 'Brief description...',  // 1-2 sentences
-//   link: 'https://...',              // Link to full article
-//   image: 'assets/images/file.jpg'   // Photo (OR use 'video' for video embed)
+//   title: 'Your Blog Post Title',     // Post headline
+//   date: 'Month Day, Year',           // Publication date
+//   summary: 'Brief description...',   // 1-2 sentences summary
+//   link: 'https://...',               // Link to full article (optional)
+//   image: '/public/assets/images/post.jpg'  // Featured image (optional)
 // },
 
 function newsItems() {
   return [
-    // Add your news items here
+    // Add your blog posts here
     // Example format:
     // { 
-    //   title: 'Your News Title', 
-    //   date: 'Month Day, Year', 
-    //   summary: 'Brief description of the news...',
-    //   link: 'https://link-to-article.com',  // optional
-    //   image: 'assets/images/your-image.jpg'  // optional
+    //   title: 'Understanding QSAR Modeling in Drug Discovery', 
+    //   date: 'January 21, 2026', 
+    //   summary: 'An introduction to quantitative structure-activity relationships and how machine learning enhances predictive modeling in pharmaceutical sciences.',
+    //   link: 'https://your-blog-url.com/post',  // optional
+    //   image: '/public/assets/images/blog-post.jpg'  // optional
     // },
   ];
 }
