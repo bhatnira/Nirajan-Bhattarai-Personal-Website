@@ -383,13 +383,14 @@ function renderSudeshnaRoy() {
 }
 
 function renderNews() {
+  const news = newsItems();
   mount(`
   <section class="section">
     <div class="container" style="max-width: 900px;">
       <h2>News & Updates</h2>
       <p class="sub">Recent achievements, publications, and announcements.</p>
       <div style="display: flex; flex-direction: column; gap: 32px; margin-top: 32px;">
-        ${newsItems().map(n => `
+        ${news.length > 0 ? news.map(n => `
           <article class="card" style="padding: 0; overflow: hidden;">
             ${n.video ? `
               <div style="width: 100%; height: 400px; background: #000;">
@@ -405,7 +406,12 @@ function renderNews() {
               ${n.link ? `<a href="${n.link}" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; font-weight: 600; margin-top: 12px; display: inline-block;">Read More →</a>` : ''}
             </div>
           </article>
-        `).join('')}
+        `).join('') : `
+          <div class="card" style="padding: 48px; text-align: center;">
+            <h3 style="margin-top: 0; color: #666;">No news items yet</h3>
+            <p style="color: #999; margin-top: 12px;">Check back soon for updates and announcements.</p>
+          </div>
+        `}
       </div>
     </div>
   </section>
@@ -595,34 +601,15 @@ function renderJoinUs() {
 
 function newsItems() {
   return [
-    { 
-      title: 'New Research Publication', 
-      date: 'January 2026', 
-      summary: 'Recent publication highlighting computational approaches to biological problems and innovative bioinformatics methodologies.',
-      link: '#publications',
-      image: 'assets/images/IMG_3815.jpg'
-    },
-    { 
-      title: 'Academic Achievement', 
-      date: 'December 2025', 
-      summary: 'Recognized for outstanding contributions to computational biology and bioinformatics research.',
-      link: '#research',
-      image: 'assets/images/IMG_3773.jpg'
-    },
-    { 
-      title: 'Conference Presentation', 
-      date: 'November 2025', 
-      summary: 'Presented research findings at international bioinformatics conference, showcasing novel computational methods.',
-      link: '#publications',
-      image: 'assets/images/IMG_3785.jpg'
-    },
-    { 
-      title: 'Research Collaboration', 
-      date: 'October 2025', 
-      summary: 'Initiated exciting new collaboration focusing on machine learning applications in systems biology.',
-      link: '#research',
-      image: 'assets/images/IMG_3815.jpg'
-    }
+    // Add your news items here
+    // Example format:
+    // { 
+    //   title: 'Your News Title', 
+    //   date: 'Month Day, Year', 
+    //   summary: 'Brief description of the news...',
+    //   link: 'https://link-to-article.com',  // optional
+    //   image: 'assets/images/your-image.jpg'  // optional
+    // },
   ];
 }
 
