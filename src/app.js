@@ -18,6 +18,35 @@
 // DATA STORAGE - Edit these to update your content!
 // ============================================
 
+// PUBLICATIONS DATA - Add your academic publications here
+// Extract from your CV and add each publication
+const PUBLICATIONS = [
+  // Template - Copy and modify this:
+  // {
+  //   title: 'Full Publication Title',
+  //   authors: 'Bhattarai, N., Smith, J., Doe, A.',  // List all authors
+  //   journal: 'Journal Name',
+  //   year: 2025,
+  //   volume: '15',  // Optional
+  //   pages: '123-145',  // Optional
+  //   doi: 'https://doi.org/10.xxxx/xxxxx',  // DOI link
+  //   pmid: '12345678',  // PubMed ID (optional)
+  //   pdf: 'assets/publications/paper.pdf',  // PDF link (optional)
+  //   type: 'Journal Article'  // 'Journal Article', 'Conference', 'Preprint', 'Book Chapter'
+  // },
+  
+  // Add your publications below (copy from your CV):
+  // Example:
+  // {
+  //   title: 'Machine Learning Approaches for QSAR Modeling in Drug Discovery',
+  //   authors: 'Bhattarai, N., Roy, S.',
+  //   journal: 'Journal of Chemical Information and Modeling',
+  //   year: 2025,
+  //   doi: 'https://doi.org/10.xxxx/xxxxx',
+  //   type: 'Journal Article'
+  // },
+];
+
 // BLOG DATA - Add your blog posts here
 // To add a new blog post, copy the template and add it to the top of the array
 const BLOG_POSTS = [
@@ -413,64 +442,54 @@ function renderPublications() {
       <div class="container">
         <h1 style="margin-top: 48px; text-align: left;">Publications</h1>
         <p style="margin-top: 16px; margin-bottom: 32px; max-width: 100%;">
-          Selected publications in computational biology, bioinformatics, and related fields.
+          Peer-reviewed publications in AI-driven drug discovery, computational chemistry, and related fields.
         </p>
-        <div style="margin-top: 32px; max-width: 100%;">
-          
-          <div class="pub-item">
-            <div>
-              <h3><strong>1.</strong> Computational Approaches to Biological Systems</h3>
-              <p class="meta">Bhattarai, N. et al. — Journal of Computational Biology (2025)</p>
-            </div>
-            <div class="links">
-              <a href="#" target="_blank" rel="noopener">DOI</a>
-            </div>
+        
+        ${PUBLICATIONS.length > 0 ? `
+          <div style="margin-top: 32px; max-width: 100%;">
+            ${PUBLICATIONS.map((pub, index) => `
+              <div class="pub-item" style="padding: 20px; margin-bottom: 20px; border-left: 3px solid var(--primary); background: #f8f9fa;">
+                <div style="display: flex; justify-content: space-between; align-items: start; gap: 20px;">
+                  <div style="flex: 1;">
+                    <div style="display: inline-block; background: var(--primary); color: white; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-bottom: 12px;">
+                      ${pub.type || 'Publication'}
+                    </div>
+                    <h3 style="margin: 8px 0 12px 0; font-size: 18px; line-height: 1.4;">
+                      <strong>${index + 1}.</strong> ${pub.title}
+                    </h3>
+                    <p style="color: #495057; margin: 8px 0; line-height: 1.6;">
+                      ${pub.authors}
+                    </p>
+                    <p style="color: #6c757d; font-style: italic; margin: 4px 0;">
+                      ${pub.journal}${pub.volume ? `, ${pub.volume}` : ''}${pub.pages ? `:${pub.pages}` : ''} (${pub.year})
+                    </p>
+                    <div style="display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap;">
+                      ${pub.doi ? `<a href="${pub.doi}" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; font-size: 14px; font-weight: 600;">📄 DOI</a>` : ''}
+                      ${pub.pmid ? `<a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; font-size: 14px; font-weight: 600;">🔬 PubMed</a>` : ''}
+                      ${pub.pdf ? `<a href="${pub.pdf}" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; font-size: 14px; font-weight: 600;">📑 PDF</a>` : ''}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
           </div>
-
-          <div class="pub-item">
-            <div>
-              <h3><strong>2.</strong> Machine Learning Applications in Bioinformatics</h3>
-              <p class="meta">Bhattarai, N.; Collaborators — Bioinformatics Journal (2024)</p>
-            </div>
-            <div class="links">
-              <a href="#" target="_blank" rel="noopener">DOI</a>
-            </div>
+        ` : `
+          <div class="card" style="padding: 48px; text-align: center; background: #f8f9fa;">
+            <h3 style="margin-top: 0; color: #666;">Publications Coming Soon</h3>
+            <p style="color: #999; margin-top: 12px;">
+              Add your publications to the PUBLICATIONS array in src/app.js.<br/>
+              Extract them from your CV: Nirajan_Bhattarai_CV.pdf
+            </p>
           </div>
-
-          <div class="pub-item">
-            <div>
-              <h3><strong>3.</strong> Integrative Multi-Omics Data Analysis</h3>
-              <p class="meta">Bhattarai, N. et al. — Systems Biology (2024)</p>
-            </div>
-            <div class="links">
-              <a href="#" target="_blank" rel="noopener">DOI</a>
-            </div>
-          </div>
-
-          <div class="pub-item">
-            <div>
-              <h3><strong>4.</strong> Novel Bioinformatics Pipeline Development</h3>
-              <p class="meta">Bhattarai, N. — Computational Methods (2023)</p>
-            </div>
-            <div class="links">
-              <a href="#" target="_blank" rel="noopener">DOI</a>
-            </div>
-          </div>
-
-          <div class="pub-item">
-            <div>
-              <h3><strong>5.</strong> Advanced Statistical Methods for Genomic Data</h3>
-              <p class="meta">Bhattarai, N.; Research Team — Genome Research (2023)</p>
-            </div>
-            <div class="links">
-              <a href="#" target="_blank" rel="noopener">DOI</a>
-            </div>
-          </div>
-
-        </div>
-        <div class="card" style="margin-top: 48px; padding: 24px; background: #f8f9fa;">
-          <p style="margin: 0; text-align: center; color: #666;">
-            <em>Note: This is a placeholder publications list. Please update with your actual publications.</em>
+        `}
+        
+        <div class="card" style="margin-top: 48px; padding: 24px; background: #e7f3ff; border-left: 4px solid var(--primary);">
+          <h3 style="margin-top: 0;">📝 How to Add Your Publications</h3>
+          <p style="margin: 12px 0; line-height: 1.6;">
+            1. Open <code style="background: #fff; padding: 2px 6px; border-radius: 3px;">src/app.js</code><br/>
+            2. Find the <code style="background: #fff; padding: 2px 6px; border-radius: 3px;">PUBLICATIONS</code> array (near the top)<br/>
+            3. Copy the template and add each publication from your CV<br/>
+            4. Save, commit, and push to update the website
           </p>
         </div>
       </div>
