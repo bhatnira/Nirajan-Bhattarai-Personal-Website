@@ -57,69 +57,59 @@ function mount(html) {
 // HOME PAGE
 function renderHome() {
   mount(`
-  <section class="section" id="slideshow">
-    <div class="container">
-      <!-- Swiper -->
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="/public/assets/images/IMG_3773.jpg" alt="Nirajan Bhattarai" /></div>
-          <div class="swiper-slide"><img src="/public/assets/images/IMG_3785.jpg" alt="Research Work" /></div>
-          <div class="swiper-slide"><img src="/public/assets/images/IMG_3815.jpg" alt="Academic Journey" /></div>
-          <div class="swiper-slide"><img src="/public/assets/images/IMG_3815.jpg" alt="Professional Development" /></div>
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    </div>
-  </section>
   <section class="section">
     <div class="container">
       <div class="card" style="padding:20px">
         <h3 style="margin:0">Welcome to Nirajan Bhattarai's Academic Portfolio</h3>
-        <p style="margin-top: 12px;">Explore my research, publications, and academic journey in computational biology and bioinformatics.</p>
+        <p style="margin-top: 12px;">Explore my research, publications, and academic journey in AI-driven drug discovery and computational pharmaceutical sciences.</p>
       </div>
-      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px">
-        <div class="card" style="padding:20px; display:flex; align-items:center;">
-          <div>
+      <div class="grid" style="grid-template-columns: 1fr 2fr; gap: 20px; margin-top: 16px; align-items: start;">
+        <div class="card" style="padding:20px; display:flex; flex-direction: column; align-items:center;">
+          <div class="avatar" style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; margin-bottom: 16px;">
+            <img src="/assets/images/Nirajan.jpg" alt="Nirajan Bhattarai" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+          <div style="text-align: center;">
             <address style="font-style: normal; color: var(--text)">
-              <strong>Nirajan Bhattarai</strong><br/>
+              <strong style="font-size: 18px;">Nirajan Bhattarai</strong><br/>
             </address>
-            <div style="margin-top:10px; color: var(--text)">
+            <div style="margin-top:12px; color: var(--text); line-height: 1.8;">
               <div>Postdoctoral Researcher</div>
               <div>Roy Laboratory</div>
               <div>Department of Pharmaceutical Sciences</div>
               <div>UT Health Science Center</div>
-              <div style="margin-top: 8px;"><a href="mailto:contact@nirajanbhattarai.com">contact@nirajanbhattarai.com</a></div>
+              <div style="margin-top: 12px;"><a href="mailto:contact@nirajanbhattarai.com" style="color: var(--primary); text-decoration: none; font-weight: 600;">contact@nirajanbhattarai.com</a></div>
             </div>
           </div>
         </div>
-        <div class="card" style="padding:20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-          <h3 style="margin-top: 0; color: white;">Research Interests</h3>
-          <ul style="list-style: none; padding: 0; margin-top: 16px;">
-            <li style="margin-bottom: 8px;">• AI-Driven Drug Discovery</li>
-            <li style="margin-bottom: 8px;">• QSAR Modeling & Cheminformatics</li>
-            <li style="margin-bottom: 8px;">• Protein Structure Prediction & Modeling</li>
-            <li style="margin-bottom: 8px;">• Generative Models for De Novo Drug Design</li>
-            <li style="margin-bottom: 8px;">• Explainable AI (XAI) in Pharmaceutical Sciences</li>
+        <div class="card" style="padding:24px;">
+          <h3 style="margin-top: 0;">Research Interests</h3>
+          <ul style="list-style: none; padding: 0; margin-top: 16px; line-height: 2;">
+            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary);">▸</span>
+              AI-Driven Drug Discovery
+            </li>
+            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary);">▸</span>
+              QSAR Modeling & Cheminformatics
+            </li>
+            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary);">▸</span>
+              Protein Structure Prediction & Molecular Modeling
+            </li>
+            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary);">▸</span>
+              Generative Models for De Novo Drug Design
+            </li>
+            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary);">▸</span>
+              Explainable AI (XAI) in Pharmaceutical Sciences
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </section>
   `);
-
-  // Initialize Swiper
-  new Swiper('.swiper', {
-    loop: true,
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    autoplay: { delay: 4000, disableOnInteraction: false },
-    effect: 'slide',
-    speed: 600,
-  });
 }
 
 function renderResearch(root) {
